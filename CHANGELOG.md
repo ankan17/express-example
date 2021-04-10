@@ -1,3 +1,8 @@
+## v0.3.0
+
+### Changed:
+- Handle all errors in a global error handler
+
 ## v0.2.1
 
 ### Fixed:
