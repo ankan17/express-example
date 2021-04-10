@@ -1,3 +1,8 @@
+## v0.4.0
+
+### Added:
+- Add morgan logger
+
 ## v0.3.0
 
 ### Changed:

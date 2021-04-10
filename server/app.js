@@ -2,6 +2,7 @@ const express = require('express');
 
 const routes = require('./routes');
 const errorHandlerMiddleware = require('./middlewares/errorHandler');
+const loggerMiddleware = require('./middlewares/logger');
 
 const port = process.env.PORT || 3000;
 
@@ -13,6 +14,8 @@ const startApp = () => {
   });
 
   app.use(express.json());
+
+  app.use(loggerMiddleware);
 
   app.use('/api/v1', routes);
 
