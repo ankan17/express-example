@@ -1,0 +1,15 @@
+{
+  "name": "example-express-app",
+  "version": "1.0.0",
+  "description": "An example Express app",
+  "main": "index.js",
+  "engines": {
+    "node": "14.15.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Ankan Poddar <apoddar1701@gmail.com> (https://ankan17.github.io/)",
+  "license": "MIT"
+}
