@@ -1,4 +1,5 @@
 const users = require('../data/users');
+const NotFoundException = require('../utils/errors/NotFoundException');
 
 const getAllUsers = () => new Promise((resolve) => resolve(users));
 
@@ -15,14 +16,7 @@ const createUser = (userDetails) => {
 const getUserById = (id) => {
   const userToFind = users.find((user) => user.id === parseInt(id));
   if (!userToFind) {
-    const notFoundError = new Error();
-    notFoundError.statusCode = 404;
-    notFoundError.body = {
-      status: 'failure',
-      statusCode: 404,
-      message: `No user found with id ${id}`,
-    };
-    throw notFoundError;
+    throw new NotFoundException(`No user found with id ${id}`);
   }
   return new Promise((resolve) => {
     resolve(userToFind);
@@ -36,14 +30,7 @@ const updateUserById = (id, userDetails) => {
   };
   const idx = users.findIndex((user) => user.id === parseInt(id));
   if (idx === -1) {
-    const notFoundError = new Error();
-    notFoundError.statusCode = 404;
-    notFoundError.body = {
-      status: 'failure',
-      statusCode: 404,
-      message: `No user found with id ${id}`,
-    };
-    throw notFoundError;
+    throw new NotFoundException(`No user found with id ${id}`);
   }
   users[idx] = updatedUserDetails;
   return new Promise((resolve) => {

@@ -1,3 +1,8 @@
+## v0.2.1
+
+### Fixed:
+- Refactor error logic to separate Error class
+
 ## v0.2.0
 
 ### Added:
