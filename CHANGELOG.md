@@ -1,3 +1,9 @@
+## v0.2.0
+
+### Added:
+- Create the directory structure
+- Add simple routes, controllers and services for CRUD operations on user
+
 ## v0.1.0
 
 ### Added:
