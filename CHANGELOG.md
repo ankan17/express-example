@@ -1,3 +1,8 @@
+## v0.7.0
+
+### Added:
+- Add husky and pre-commit hook to check linting
+
 ## v0.6.0
 
 ### Added:
