@@ -9,7 +9,7 @@ userRouter.get('/', userController.getUsers);
 userRouter.post(
   '/',
   (req, res, next) => validationMiddleware('user', req, res, next),
-  userController.createUser
+  userController.createUser,
 );
 
 userRouter.get('/:id', userController.getUserById);
@@ -17,7 +17,7 @@ userRouter.get('/:id', userController.getUserById);
 userRouter.put(
   '/:id',
   (req, res, next) => validationMiddleware('user', req, res, next),
-  userController.updateUserById
+  userController.updateUserById,
 );
 
 userRouter.delete('/:id', userController.deleteUserById);

@@ -1,3 +1,11 @@
+## v0.6.0
+
+### Added:
+- Add and configure ESLint
+
+### Fixed:
+- Fix lint issues
+
 ## v0.5.0
 
 ### Added:

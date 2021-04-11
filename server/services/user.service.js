@@ -14,7 +14,7 @@ const createUser = (userDetails) => {
 };
 
 const getUserById = (id) => {
-  const userToFind = users.find((user) => user.id === parseInt(id));
+  const userToFind = users.find((user) => user.id === parseInt(id, 10));
   if (!userToFind) {
     throw new NotFoundException(`No user found with id ${id}`);
   }
@@ -28,7 +28,7 @@ const updateUserById = (id, userDetails) => {
     id,
     ...userDetails,
   };
-  const idx = users.findIndex((user) => user.id === parseInt(id));
+  const idx = users.findIndex((user) => user.id === parseInt(id, 10));
   if (idx === -1) {
     throw new NotFoundException(`No user found with id ${id}`);
   }
@@ -40,7 +40,7 @@ const updateUserById = (id, userDetails) => {
 
 const deleteUserById = (id) => {
   const userDetails = getUserById(id);
-  const idx = users.findIndex((user) => user.id === parseInt(id));
+  const idx = users.findIndex((user) => user.id === parseInt(id, 10));
   users.splice(idx, 1);
   return new Promise((resolve) => {
     resolve(userDetails);

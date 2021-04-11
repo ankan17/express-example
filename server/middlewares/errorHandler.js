@@ -1,14 +1,12 @@
 const InternalServerException = require('../utils/errors/InternalServerException');
 
-const errorHandlerMiddleware = (error, req, res, next) => {
+const errorHandlerMiddleware = (err, req, res, next) => {
   if (res.headersSent) {
-    next(error);
+    next(err);
   } else {
-    if (!error.statusCode) {
-      error = new InternalServerException(
-        process.env.NODE_ENV !== 'production' ? error.message : null
-      );
-    }
+    const error = err.statusCode ? err : new InternalServerException(
+      process.env.NODE_ENV !== 'production' ? err.message : null,
+    );
     res.status(error.statusCode).send(error.body);
   }
 };

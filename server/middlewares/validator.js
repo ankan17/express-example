@@ -1,8 +1,10 @@
 const userSchema = require('../validators/user.validator');
 const BadRequestException = require('../utils/errors/BadRequestException');
+const InternalServerException = require('../utils/errors/InternalServerException');
 
 const validationMiddleware = (schemaName, req, res, next) => {
-  let error, value;
+  let error;
+  let value;
   switch (schemaName) {
     case 'user':
       ({ error, value } = userSchema.validate(req.body));
