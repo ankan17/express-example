@@ -1,22 +1,23 @@
 const express = require('express');
 
+const userController = require('./user.controller');
+const { createUserValidationMiddleware, updateUserValidationMiddleware } = require('./user.middleware');
+
 const userRouter = express.Router();
-const userController = require('../controllers/user.controller');
-const validationMiddleware = require('../middlewares/validator');
 
 userRouter.get('/', userController.getUsers);
 
+userRouter.get('/:id', userController.getUserById);
+
 userRouter.post(
   '/',
-  (req, res, next) => validationMiddleware('user', req, res, next),
+  createUserValidationMiddleware,
   userController.createUser,
 );
 
-userRouter.get('/:id', userController.getUserById);
-
 userRouter.put(
   '/:id',
-  (req, res, next) => validationMiddleware('user', req, res, next),
+  updateUserValidationMiddleware,
   userController.updateUserById,
 );
 

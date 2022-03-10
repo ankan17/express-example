@@ -1,8 +1,8 @@
 const express = require('express');
 
-const routes = require('./routes');
-const errorHandlerMiddleware = require('./middlewares/errorHandler');
+const globalErrorHandler = require('./middlewares/globalErrorHandler');
 const loggerMiddleware = require('./middlewares/logger');
+const apiRoutes = require('./routes');
 
 const port = process.env.PORT || 3000;
 
@@ -17,9 +17,9 @@ const startApp = () => {
 
   app.use(loggerMiddleware);
 
-  app.use('/api/v1', routes);
+  app.use('/api', apiRoutes);
 
-  app.use(errorHandlerMiddleware);
+  app.use(globalErrorHandler);
 
   const server = app.listen(port, () => {
     console.log(`Listening on port ${server.address().port}...`);

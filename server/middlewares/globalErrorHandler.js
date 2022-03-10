@@ -1,6 +1,6 @@
 const InternalServerException = require('../utils/errors/InternalServerException');
 
-const errorHandlerMiddleware = (err, req, res, next) => {
+const globalErrorHandler = (err, req, res, next) => {
   if (res.headersSent) {
     next(err);
   } else {
@@ -11,4 +11,4 @@ const errorHandlerMiddleware = (err, req, res, next) => {
   }
 };
 
-module.exports = errorHandlerMiddleware;
+module.exports = globalErrorHandler;
