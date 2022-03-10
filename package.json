@@ -11,7 +11,8 @@
     "start:dev": "nodemon server",
     "lint": "eslint . --ext .js --cache",
     "lint:fix": "eslint . --ext .js --fix",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "generate:docs": "apidoc -i server -o docs"
   },
   "husky": {
     "hooks": {
@@ -22,6 +23,7 @@
   "author": "Ankan Poddar <apoddar1701@gmail.com> (https://ankan17.github.io/)",
   "license": "MIT",
   "dependencies": {
+    "apidoc": "^0.50.5",
     "express": "^4.17.1",
     "joi": "^17.4.0",
     "morgan": "^1.10.0"
